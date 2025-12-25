@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: "Magilio";
+    src: url("fonts/Magilio DEMO.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #f7f4eb;
+
+}
+
+header{
+    background-color: #66ad5f;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 80px;
+}
+
+.logo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.link{
+    margin-left: auto;
+    
+}
+
+header .logo h1{
+    font-family: "Magilio";
+    color: #f7f4eb;
+}
+
+header .logo a{
+    text-decoration: none;
+}
+
+header .link a{
+    font-family: "Roboto";
+    text-decoration: none;
+    background-color: #f7f4eb;
+    text-decoration: none;
+    padding: .5em 1em;
+    border-radius: 30px;
+}

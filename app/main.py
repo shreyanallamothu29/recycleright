@@ -52,5 +52,9 @@ class ZipForm(FlaskForm):
     zip = StringField("zip", validators = [validators.DataRequired(), validators.Length(min=5, max=5)])
     submit2 = SubmitField('Upload')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__=="__main__":
     app.run(port=5000)

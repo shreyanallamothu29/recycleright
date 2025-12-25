@@ -2,10 +2,19 @@
 <html>
   <head>
     <title></title>
+    <link rel="stylesheet" href="{{url_for("static", filename="global.css")}}">
     <link rel="stylesheet" href="{{url_for("static", filename="index.css")}}">
   </head>
   <body>
-    <h1>recycler</h1>
+    <header>
+      <div class="logo">
+        <a href="/predict"><h1>Recycle Right</h1></a>
+      </div>
+      <div class="link">
+        <a href="/about">about</a>
+        <a href="/predict">predict</a>
+      </div>
+    </header>
     <form action="predict" method='POST' enctype="multipart/form-data" accept="image/*" >
         {{ file_form.csrf_token }}
         {{ file_form.file }}
