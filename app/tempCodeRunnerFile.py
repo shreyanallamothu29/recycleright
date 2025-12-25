@@ -1,0 +1,1 @@
+page = requests.get(url, verify=False)

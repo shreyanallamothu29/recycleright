@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="{{url_for("static", filename="index.css")}}">
+  </head>
+  <body>
+    <h1>recycler</h1>
+    <form action="predict" method='POST' enctype="multipart/form-data" accept="image/*" >
+        {{ file_form.csrf_token }}
+        {{ file_form.file }}
+        {{ file_form.submit1}}
+        {{ prediction }}
+    </form>
+    <form action="predict" method="POST" enctype="multipart/form-data">
+        {% if prediction %}
+          {{ zip_form.csrf_token }}
+          {{ zip_form.zip }}
+          {{ zip_form.submit2 }}
+          {%for location in locations%}
+            {{ location["Business Name"] }}
+          {% endfor %}
+        {% endif %}
+    </form>
+  </body>
+</html>
