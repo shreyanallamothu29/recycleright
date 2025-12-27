@@ -1,54 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 @font-face {
-    font-family: "Magilio";
-    src: url("fonts/Magilio DEMO.ttf");
+    font-family: "Pockota";
+    src: url("fonts/Pockota-LightItalic.otf");
 }
 
-*{
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: "Pockota Light";
+    src: url("fonts/pockota-light.ttf");
 }
+
 
 body{
-    background-color: #f7f4eb;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 header{
-    background-color: #66ad5f;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 80px;
+    min-height: 60px;
 }
 
-.logo{
+h1{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Plus Jakarta Sans";
+    color: #ffdd5f;
+    font-size: 2rem;
 
 }
 
 .link{
     margin-left: auto;
-    
-}
-
-header .logo h1{
-    font-family: "Magilio";
-    color: #f7f4eb;
-}
-
-header .logo a{
-    text-decoration: none;
+    padding-right: 2vw;
+    display: flex;
+    gap: 12px;
 }
 
 header .link a{
-    font-family: "Roboto";
+    font-family: "Plus Jakarta Sans";
+    color: #f7f4eb;
     text-decoration: none;
-    background-color: #f7f4eb;
     text-decoration: none;
+    font-style:  italic;
     padding: .5em 1em;
-    border-radius: 30px;
 }

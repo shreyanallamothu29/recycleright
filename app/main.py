@@ -34,23 +34,23 @@ def predict():
             except Exception:
                 return render_template("index.html", file_form = file_form, prediction = "error during prediction")
     
-    if zip_form.submit2.data and zip_form.validate_on_submit():
+    if zip_form.submit2.data:
         prediction = session.get('prediction')
         zip = zip_form.zip.data
         url = build_url(prediction, zip)
         facilities = extract_information(url)
-        return render_template("index.html",file_form=file_form,zip_form=zip_form,prediction=prediction,locations=facilities)
+        return render_template("index.html",file_form=file_form,zip_form=zip_form,prediction=prediction,facilities=facilities)
     else:
         return render_template("index.html", file_form = file_form)
 
 class PhotoForm(FlaskForm):
-    file = FileField("file", validators=[FileRequired()], render_kw={"accept": "image/*"})
+    file = FileField("file", validators=[FileRequired()], render_kw={"accept": "image/*", "class": "file-input"})
 
-    submit1 = SubmitField('Upload')
+    submit1 = SubmitField('upload', render_kw={"class": "file-submit-btn"})
 
 class ZipForm(FlaskForm):
-    zip = StringField("zip", validators = [validators.DataRequired(), validators.Length(min=5, max=5)])
-    submit2 = SubmitField('Upload')
+    zip = StringField("zip", render_kw={"class": "zip-input"}, validators = [validators.DataRequired(), validators.Length(min=5, max=5)], )
+    submit2 = SubmitField('Upload', render_kw={"class": "zip-submit-btn"})
 
 @app.route('/about')
 def about():
