@@ -50,11 +50,11 @@ def predict():
 class PhotoForm(FlaskForm):
     file = FileField("file", validators=[FileRequired()], render_kw={"accept": "image/*", "class": "file-input"})
 
-    submit1 = SubmitField('upload', render_kw={"class": "file-submit-btn"})
+    submit1 = SubmitField('Submit Photo', render_kw={"class": "file-submit-btn"})
 
 class ZipForm(FlaskForm):
-    zip = StringField("zip", render_kw={"class": "zip-input", "placeholder": "enter your ZIP code"}, validators = [validators.DataRequired(), validators.Length(min=5, max=5)], )
-    submit2 = SubmitField('Upload', render_kw={"class": "zip-submit-btn"})
+    zip = StringField("zip", render_kw={"class": "zip-input", "placeholder": "Enter your ZIP code"}, validators = [validators.DataRequired(), validators.Length(min=5, max=5)], )
+    submit2 = SubmitField('Get Info', render_kw={"class": "zip-submit-btn"})
 
 @app.route('/about')
 def about():

@@ -1,71 +1,78 @@
 <!doctype html>
 <html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="{{url_for("static", filename="global.css")}}">
-    <link rel="stylesheet" href="{{url_for("static", filename="index.css")}}">
-  </head>
-  <body>
-    <header>
-      <h1>RecycleRight</h1>
-      <div class="link">
-        <a href="/about">about</a>
-        <a href="/predict">predict</a>
-      </div>
-    </header>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="{{url_for("static", filename="global.css" )}}">
+  <link rel="stylesheet" href="{{url_for("static", filename="index.css" )}}">
+</head>
+
+<body>
+  <header>
+    <h1>RecycleRight</h1>
+    <div class="link">
+      <a href="/about">about</a>
+      <a href="/predict">predict</a>
+    </div>
+  </header>
   <h2>Snap it. Sort it. Recycle it right.</h2>
-  <p class="hero">RecycleRight uses machine learning to help you figure out if you can recycle an object and tells you where! Upload a photo to get started.</p>
-    <div class="content">
-      <form action="predict" method='POST' enctype="multipart/form-data" accept="image/*" class="file-form">
-          {{ file_form.csrf_token}}
-          <label for="file" class="upload-box">
-            Upload an image of recycling here
-          </label>
-        <!-- class: file-input -->
-          {{ file_form.file }}
-        <!-- class: file-submit-btn -->
-          {{ file_form.submit1 }} 
-        </form>
-        {%if prediction%}
-          <div class="prediction">
-            <div class="title">
-              {{ results["title"] }}
-            </div>
-            <div class="content">
-              <img src = "{{ gif_file_path }}" id ="gif">
-              <div class="paragraph">
-                {{ results["description"]}}
-                <br><br>
-                {{ results["guidelines_intro"]}}
-                <ul>
-                  {% for bullet in results["bullets"] %}
-                    <li>{{ bullet }}</li>
-                  {% endfor %}
-                </ul>
-                {{ results["zip"]}}
-              </div>
-            </div>
-          </div>
-        {%endif%}
-      <form action="predict" method="POST" enctype="multipart/form-data" class="zip-form">
-          {% if prediction %}
-            {{ zip_form.csrf_token }}
-            <p>Put in your zip code below to get recycling facilities!</p>
-            <div class="zip-wrapper">
-          <!-- class: zip-input -->
-              {{ zip_form.zip }}
-          <!-- class: zip-submit-btn -->
-              {{ zip_form.submit2 }}
-            </div>
-            {% for facility in facilities %}
-              <div class="facility">
-                <div class="facility-name">{{ facility["Business Name"] }}</div>
-                <div class="facility-address">{{ facility["Address"] }}</div>
-                <div class="facility-phone">{{ facility["Phone"] }}</div>
-              </div>
-            {% endfor %}
-          {% endif %}
-      </div>
+  <p class="hero">RecycleRight uses machine learning to help you figure out if you can recycle an object and tells you
+    where! Upload a photo to get started.</p>
+  <div class="content">
+    <form action="predict" method='POST' enctype="multipart/form-data" accept="image/*" class="file-form">
+      {{ file_form.csrf_token}}
+      <label for="file" class="upload-box">
+        Upload an image of recycling here
+      </label>
+      <!-- class: file-input -->
+      {{ file_form.file }}
+      <!-- class: file-submit-btn -->
+      {{ file_form.submit1 }}
     </form>
-  </body>
+    {%if prediction%}
+    <div class="prediction">
+      <div class="title">
+        {{ results["title"] }}
+      </div>
+      <div class="content">
+        <img src="{{ gif_file_path }}" id="gif">
+        <div class="paragraph">
+          {{ results["description"]}}
+          <br><br>
+          {{ results["guidelines_intro"]}}
+          <ul>
+            {% for bullet in results["bullets"] %}
+            <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+          {{ results["zip"]}}
+        </div>
+      </div>
+    </div>
+    {%endif%}
+    <form action="predict" method="POST" enctype="multipart/form-data" class="zip-form">
+      {% if prediction %}
+      {{ zip_form.csrf_token }}
+      <p>Put in your zip code below to get recycling facilities!</p>
+      <div class="zip-wrapper">
+        <!-- class: zip-input -->
+        {{ zip_form.zip }}
+        <!-- class: zip-submit-btn -->
+        {{ zip_form.submit2 }}
+      </div>
+      <div class="facility-wrapper">
+        {% for facility in facilities %}
+        {% set maps_link = "https://www.google.com/maps/dir/?api=1&destination=" ~ facility["Address"] %}
+        <a href="{{ maps_link }}" class="facility" target="_blank">
+          <div class="facility-name"> {{ facility["Business Name"] }}</div>
+          <div class="facility-address"> 📍 {{ ", ".join(facility["Address"]) }}</div>
+          <div class="facility-phone">📞 {{ facility["Phone"] }}</div>
+          <a>
+            {% endfor %}
+      </div>
+      {% endif %}
+  </div>
+  </form>
+</body>
+
 </html>

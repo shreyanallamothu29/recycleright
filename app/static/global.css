@@ -42,12 +42,11 @@ h1{
     padding-right: 2vw;
     display: flex;
     gap: 12px;
-  color: #3d2100;
 }
 
 header .link a{
     font-family: "Plus Jakarta Sans";
-    color: #f7f4eb;
+    color: #3d2100;
     text-decoration: none;
     text-decoration: none;
     font-style:  italic;

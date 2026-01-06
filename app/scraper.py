@@ -30,7 +30,7 @@ def extract_information(url):
 
     # 2. find items
     items = soup.find_all("li", class_="result-item")
-    items = items[:5]
+    items = items[:6]
 
     facilities = []
 
@@ -45,8 +45,15 @@ def extract_information(url):
 
         # address
         contact_ps = item.select(".contact p")
-        address_parts = [clean_text(p.get_text(strip=True)) for p in contact_ps if p.get_text(strip=True)]
-        address = ", ".join(address_parts) if address_parts else "No address listed"
+        address_parts = []
+        for p in contact_ps:
+            text = clean_text(p.get_text(strip=True))
+            if not text:
+                continue
+            # skip phone numbers
+            if "(" in text and ")" in text and "-" in text:
+                continue
+            address_parts.append(text)
 
         # materials
         material_spans = item.select(".result-materials .matched, .result-materials .material")
@@ -55,7 +62,7 @@ def extract_information(url):
 
         facility = {
             "Business Name": title,
-            "Address": address,
+            "Address": address_parts,
             "Phone": phone,
             "Materials Accepted": materials_text
         }
