@@ -1,6 +1,5 @@
 *{
   box-sizing: border-box;
-  gap: 20px;
 }
 
 h2{
@@ -44,6 +43,7 @@ p.hero{
   align-items: center;
   justify-content: center;
   font-family: "Plus Jakarta Sans";
+  margin: 20px;
 }
 
 .file-submit-btn{
@@ -53,6 +53,7 @@ p.hero{
   padding: 10px 30px;
   font-family: "Plus Jakarta Sans";
   border-radius: 20px;
+  margin: 20px;
 }
 
 .prediction{
@@ -136,6 +137,12 @@ p.hero{
   font-weight: bold;
 }
 
+.facility-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .facility{
   background-color: #fff0b9;
   border-radius: 15px;
@@ -143,18 +150,9 @@ p.hero{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-width: 500px;
   min-height: 100px;
   margin: 5px;
-  gap: 5px;
   padding: 20px;
-}
-
-.facility-wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 
 .facility-name{
@@ -174,7 +172,7 @@ p.hero{
   justify-content:space-evenly;
   border: 2px solid #e0dcd6;
   border-radius: 23px;
-  padding: 3px;
+  margin: 10px;
 }
 
 a {

@@ -3,9 +3,13 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
 from wtforms import StringField, SubmitField, validators
 from app.recycling_inf import results
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret_string'
+app.config['SECRET_KEY'] = os.getenv("SECRET_STRING")
 
 from app.torch_utils import transform_image, get_prediction
 from app.scraper import build_url, extract_information
@@ -39,6 +43,8 @@ def predict():
     
     if zip_form.submit2.data:
         prediction = session.get('prediction')
+        if not prediction:
+            return render_template("index.html", file_form = file_form)
         zip = zip_form.zip.data
         url = build_url(prediction, zip)
         facilities = extract_information(url)

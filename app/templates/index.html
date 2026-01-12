@@ -53,7 +53,7 @@
     <form action="predict" method="POST" enctype="multipart/form-data" class="zip-form">
       {% if prediction %}
       {{ zip_form.csrf_token }}
-      <p>Put in your zip code below to get recycling facilities!</p>
+      <p>Enter your ZIP code below to find places near you that recycle this item.</p>
       <div class="zip-wrapper">
         <!-- class: zip-input -->
         {{ zip_form.zip }}
