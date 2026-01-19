@@ -26,7 +26,7 @@
   <img src="https://raw.githubusercontent.com/shreyanallamothu29/recycleright/refs/heads/main/test_loss_after.png" width="400">
 
 </p>
-<h2 align="center"><a href="https://colab.research.google.com/drive/1IqD-ngqcYkEJMWfcPY-8Dw-iM2NmMWXk?usp=sharing" style="color: blue">View my Colab Notebook and PyTorch Model!</a></h2>
+<h3 align="center"><a href="https://colab.research.google.com/drive/1IqD-ngqcYkEJMWfcPY-8Dw-iM2NmMWXk?usp=sharing" style="color: blue">View my Colab Notebook and PyTorch Model!</a></h3>
 
 <p>The most challenging part of building RecycleRight was learning how to integrate the front and back end Flask, since this was my first time deploying a full-stack ML application. I used Flask to integrate the model with a clean, beautiful front end. My goal was to make the page as intuitive as possible to encourage everyday use!</p>
 
