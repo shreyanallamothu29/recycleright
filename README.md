@@ -9,7 +9,7 @@
 </p>
 
 <h2>My Solution</h2>
-
+<p align="center"><img src="rrdemo.gif" alt="Demo of Recycleright app" width="900"></p>
 <p>Simply upload a photo of an item you’re unsure how to recycle, and RecycleRight will tell you whether it’s recyclable and how to dispose of it properly. Then, enter your zip code to get a list of nearby drop-off locations and facilities.</p>
 <p>RecycleRight provides relevant, location-based information for everything from batteries to clothing to household food waste.</p>
 
